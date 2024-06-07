@@ -1,7 +1,7 @@
-import inputdata, cmd_calc, sys
+import data, commands, sys
 
 def should_continue():
-    flag = inputdata.input_choice(
+    flag = data.input_choice(
         prompt="Keep using? (Y/N): ",
         choice_list=["y", "n"],
         choice_type=str
@@ -14,11 +14,11 @@ def should_continue():
 
 def main():
     menu_func = [
-        ("D-Day", cmd_calc.cmd_dday),
-        ("Days Elapsed between Two Dates", cmd_calc.cmd_elapsed),
-        ("Matching Date", cmd_calc.cmd_matchingd),
-        ("Day of the Week", cmd_calc.cmd_weekday),
-        ("Age", cmd_calc.cmd_age),
+        ("D-Day", commands.dday),
+        ("Days Elapsed between Two Dates", commands.elapsed),
+        ("Matching Date", commands.matching_date),
+        ("Day of the Week", commands.weekday),
+        ("Age", commands.age),
         ("[Exit]", sys.exit)
     ]
 
@@ -37,7 +37,7 @@ def main():
 
     while True:
         print(menu_display)
-        menu_num = inputdata.input_choice(
+        menu_num = data.input_choice(
             prompt="Enter a menu number: ",
             choice_list=menu_list,
             choice_type=int
